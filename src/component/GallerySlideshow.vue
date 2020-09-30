@@ -3,46 +3,11 @@
     <div
       v-if="imgIndex !== null"
       class="vgs"
-      @click="close"
+
     >
-      <button
-        type="button"
-        class="vgs__close"
-        @click="close"
-      >
-        &times;
-      </button>
-      <button
-        v-if="isMultiple"
-        type="button"
-        class="vgs__prev"
-        @click.stop="onPrev"
-      >
-        &lsaquo;
-      </button>
+
       <div
-        v-if="images"
-        class="vgs__container"
-        @click.stop="onNext"
-      >
-        <img
-          class="vgs__container__img"
-          :src="imageUrl"
-          :alt="alt"
-          @click.stop="onNext"
-        >
-        <slot></slot>
-      </div>
-      <button
-        v-if="isMultiple"
-        type="button"
-        class="vgs__next"
-        @click.stop="onNext"
-      >
-        &rsaquo;
-      </button>
-      <div
-        v-if="isMultiple"
+        
         ref="gallery"
         class="vgs__gallery"
       >
@@ -67,6 +32,48 @@
             @click.stop="onClickThumb(img, i)"
           >
         </div>
+      </div>
+
+
+      <!-- <button
+        type="button"
+        class="vgs__close"
+        @click="close"
+      >
+        &times;
+      </button>
+      <button
+        v-if="isMultiple"
+        type="button"
+        class="vgs__prev"
+        @click.stop="onPrev"
+      >
+        &lsaquo;
+      </button> -->
+      <div
+        v-if="images"
+        class="vgs__container"
+        @click.stop="onNext"
+      >
+        <img
+          class="vgs__container__img"
+          :src="imageUrl"
+          :alt="alt"
+          @click.stop="onNext"
+        >
+        <slot></slot>
+      </div>
+      <!-- <button
+        v-if="isMultiple"
+        type="button"
+        class="vgs__next"
+        @click.stop="onNext"
+      >
+        &rsaquo;
+      </button> -->
+      <div class="img_info text-center" v-if="index !== null" @click.stop="">
+        <p> {{ imageLoc }} </p>
+        <p> {{ imageDesp }} </p>
       </div>
     </div>
   </transition>
@@ -111,6 +118,20 @@ export default {
     },
     isMultiple() {
       return this.images.length > 1;
+    },
+    imageDesp() {
+      const img = this.images[this.imgIndex];
+      if (typeof img === "object") {
+          return img.desp;
+      }
+      return "";            
+    },
+    imageLoc() {
+      const img = this.images[this.imgIndex];
+      if (typeof img === "object") {
+          return img.loc;
+      }
+      return "";            
     }
   },
   watch: {
@@ -239,7 +260,7 @@ $screen-md-max: ($screen-lg - 1);
 
 @mixin modal-base() {
   transition: opacity 0.2s ease;
-  position: fixed;
+  // position: fixed;
   z-index: 9998;
 }
 
@@ -250,8 +271,15 @@ $screen-md-max: ($screen-lg - 1);
   width: 100%;
   min-height: 100%;
   height: 100vh;
-  background-color: $black-alpha-80;
+  // background-color: $black-alpha-80;
   display: table;
+}
+
+.img_info {
+  background-color: bisque;
+  max-width: 100vh;
+  margin: 0.5rem auto 0;
+  border-radius: $radius-medium;
 }
 
 .vgs {
@@ -296,7 +324,7 @@ $screen-md-max: ($screen-lg - 1);
     right: 0;
   }
   &__container {
-    position: absolute;
+    // position: absolute;
     overflow: hidden;
     cursor: pointer;
     overflow: hidden;
@@ -332,15 +360,15 @@ $screen-md-max: ($screen-lg - 1);
   }
   overflow-x: hidden;
   overflow-y: hidden;
-  position: absolute;
-  bottom: 10px;
+  // position: absolute;
+  // bottom: 10px;
   margin: auto;
   max-width: 100vh;
   white-space: nowrap;
   left: 0.5rem;
   right: 0.5rem;
   &__title {
-    color: $white;
+    // color: $white;
     margin-bottom: 0.5rem;
   }
   &__container {

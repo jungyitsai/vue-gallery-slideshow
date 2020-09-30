@@ -4,7 +4,7 @@
 
 Lightweight and responsive image gallery for Vue.js.
 
-![](https://github.com/KitchenStories/vue-gallery-slideshow/blob/master/images/demo.gif)
+![](https://github.com/jungyitsai/vue-gallery-slideshow/blob/master/images/demo.png)
 
 ## Live Demo
 
@@ -15,10 +15,10 @@ Lightweight and responsive image gallery for Vue.js.
 #### By CDN
 
 ```html
-<script src="https://unpkg.com/vue-gallery-slideshow"></script>
+<script src="https://raw.githubusercontent.com/jungyitsai/vue-gallery-slideshow/master/dist/js/vue-gallery-slideshow.min.js"></script>
 ```
 
-#### By package manager
+<!-- #### By package manager
 
 ```bash
 npm install vue-gallery-slideshow
@@ -26,7 +26,7 @@ npm install vue-gallery-slideshow
 
 ```bash
 yarn add vue-gallery-slideshow
-```
+``` -->
 
 ## Usage
 
@@ -34,7 +34,6 @@ yarn add vue-gallery-slideshow
 
 ```html
 <div id="app">
-  <img class="image" v-for="(image, i) in images" :src="image" :key="i" @click="index = i">
   <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
 </div>
 ```
@@ -62,7 +61,7 @@ const app = new Vue({
       'https://placekitten.com/809/800',
       'https://placekitten.com/810/800'
     ],
-    index: null
+    index: 0
   }
 });
 ```
@@ -71,16 +70,16 @@ const app = new Vue({
 
 ## Adding alt text
 
-If you want to add alt tags to the images, you can do by wrapping it in an object and adding an `alt` property:
+If you want to add alt tags to the images, you can do by wrapping it in an object and adding an `alt`, `desp`, `loc` property:
 
 ```javascript
 images: [
-   { url: 'https://placem.at/places?w=800&h=600&random=1', alt:'My alt text' },
+   { url: 'https://placem.at/places?w=800&h=600&random=1', alt:'My alt text', desp: 'desp-1', loc: 'loc-1' },
    ...
 ]
 ```
 
-## Usage with Nuxt.js
+<!-- ## Usage with Nuxt.js
 
 When used with server-side rendering frameworks like Nuxt.js, please wrap the component in a `<client-only>` element like shown below:
 
@@ -91,7 +90,7 @@ When used with server-side rendering frameworks like Nuxt.js, please wrap the co
   <vgs :images="images" :index="index" @close="index = null" />
 </client-only>
 ...
-```
+``` -->
 
 ## Contributing
 

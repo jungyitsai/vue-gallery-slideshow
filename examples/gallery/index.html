@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript" src="../../dist/js/vue-gallery-slideshow.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
       body {
         font-family: sans-serif;
@@ -23,9 +24,13 @@
   </head>
   <body>
     <div id="app">
-      <img class="image" v-for="(image, i) in images" :src="image" @click="index = i">
+      <!-- <img class="image" v-for="(image, i) in images" :src="image.url" @click="index = i"> -->
       <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
       new Vue({
         el: '#app',
@@ -34,18 +39,21 @@
         },
         data: {
           images: [
-            'https://placem.at/places?w=800&h=600&random=1',
-            'https://placem.at/places?w=1200&h=400&random=2',
-            'https://placem.at/places?w=800&h=800&random=3',
-            'https://placem.at/places?w=600&h=800&random=4',
-            'https://placem.at/places?w=400&h=800&random=5',
-            'https://placem.at/places?w=800&h=800&random=6',
-            'https://placem.at/places?w=800&h=800&random=7',
-            'https://placem.at/places?w=800&h=800&random=8',
-            'https://placem.at/places?w=800&h=800&random=9',
-            'https://placem.at/places?w=800&h=800&random=10'
+            // 'https://placem.at/places?w=800&h=600&random=1',
+            // 'https://placem.at/places?w=1200&h=400&random=2',
+            // 'https://placem.at/places?w=800&h=800&random=3',
+            // 'https://placem.at/places?w=600&h=800&random=4',
+            // 'https://placem.at/places?w=400&h=800&random=5',
+            // 'https://placem.at/places?w=800&h=800&random=6',
+            // 'https://placem.at/places?w=800&h=800&random=7',
+            // 'https://placem.at/places?w=800&h=800&random=8',
+            // 'https://placem.at/places?w=800&h=800&random=9',
+            // 'https://placem.at/places?w=800&h=800&random=10'
+
+            { url: 'https://placem.at/places?w=800&h=600&random=1', alt:'My alt text', desp: 'desp-1', loc: 'loc-1' },
+            { url: 'https://placem.at/places?w=800&h=600&random=2', alt:'My alt text', desp: 'desp-2', loc: 'loc-2' },            
           ],
-          index: null
+          index: 0
         }
       })
     </script>
