@@ -23,9 +23,17 @@
     </style>
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="container">
       <!-- <img class="image" v-for="(image, i) in images" :src="image.url" @click="index = i"> -->
-      <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+      <div>
+        <p>select image array</p>
+        <select v-model="num_img_arr">
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+        </select>
+      </div>
+      <vue-gallery-slideshow :images="images[num_img_arr]" :index="index" @close="index = null"></vue-gallery-slideshow>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -38,6 +46,7 @@
           VueGallerySlideshow
         },
         data: {
+          num_img_arr: 0,
           images: [
             // 'https://placem.at/places?w=800&h=600&random=1',
             // 'https://placem.at/places?w=1200&h=400&random=2',
@@ -50,11 +59,18 @@
             // 'https://placem.at/places?w=800&h=800&random=9',
             // 'https://placem.at/places?w=800&h=800&random=10'
 
-            { url: 'https://placem.at/places?w=800&h=600&random=1', alt:'My alt text', desp: 'desp-1', loc: 'loc-1' },
-            { url: 'https://placem.at/places?w=800&h=600&random=2', alt:'My alt text', desp: 'desp-2', loc: 'loc-2' },            
+            [{ url: 'https://placem.at/places?w=800&h=600&random=1', alt:'My alt text', desp: 'desp-1', loc: 'loc-1' },
+            { url: 'https://placem.at/places?w=800&h=600&random=2', alt:'My alt text', desp: 'desp-2', loc: 'loc-2' }, ],
+
+            [{ url: 'https://placem.at/places?w=800&h=600&random=3', alt:'My alt text', desp: 'desp-3', loc: 'loc-3' },
+            { url: 'https://placem.at/places?w=800&h=600&random=4', alt:'My alt text', desp: 'desp-4', loc: 'loc-4' },
+            { url: 'https://placem.at/places?w=800&h=600&random=5', alt:'My alt text', desp: 'desp-4-1', loc: 'loc-4-1' },],
+
+            [{ url: 'https://placem.at/places?w=800&h=600&random=6', alt:'My alt text', desp: 'desp-5', loc: 'loc-5' },],
+
           ],
-          index: 0
-        }
+          index: 0,
+        },
       })
     </script>
   </body>
