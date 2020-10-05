@@ -4,7 +4,7 @@
 
 Lightweight and responsive image gallery for Vue.js.
 
-![](https://github.com/jungyitsai/vue-gallery-slideshow/blob/master/images/demo.png)
+![](https://raw.githubusercontent.com/jungyitsai/vue-gallery-slideshow/master/images/demo.PNG)
 
 ## Live Demo
 
