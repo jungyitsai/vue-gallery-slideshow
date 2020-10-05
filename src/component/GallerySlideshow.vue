@@ -144,6 +144,10 @@ export default {
           this.updateThumbails();
         });
       }
+    },
+    images(val, prev) {
+      this.imgIndex = 0;
+      this.galleryXPos = 0;
     }
   },
   mounted() {
@@ -188,7 +192,7 @@ export default {
       this.updateThumbails();
     },
     updateThumbails() {
-      if (this.images.length < 2){
+      if (!this.$refs.gallery) {
         return;
       }
 
