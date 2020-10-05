@@ -188,7 +188,7 @@ export default {
       this.updateThumbails();
     },
     updateThumbails() {
-      if (!this.$refs.gallery) {
+      if (this.images.length < 2){
         return;
       }
 
